@@ -13,25 +13,51 @@ tools.
 
 Explore the source in 'lib' to understand how it works.
 
-List Categories
-===============
+Examples
+========
 
-example_cli
+    # example_cli
 
-See What Commands Are In A Category
-===================================
+    usage: ./example_bin/example_cli <category> [subcommand] [--options]
 
-example_cli category   
+      choose a category for information about available commands:
+                tribbles - does things with tribbles
 
-Run A Command
-=============
+    # example_cli tribbles
 
-example_cli category subcommand [--help]
+    usage: ./example_bin/example_cli tribbles <subcommand> [--options]
+
+      choose a subcommand:
+
+                    list - list the tribbles
+
+    # example_cli tribbles list --help
+
+    Usage: example_cli tribbles list [options]
+
+    Options:
+          -h, --help            show this help message and exit
+          -n NAME, --name=NAME  list tribles only with this name
+
+    # example_cli tribbles list 
+
+    xyork
+    slorg
+    rooster
+    blinky
+    poorboy
+    willy
+
+    # example_cli tribbles list --name=willy
+
+    willy
+
+
 
 License
 =======
 
-Interfacer is MIT licensed and is very open to contributions, but not
+Interfacer is MIT licensed (c) rPath 2012 and is very open to contributions, but not
 so much feature requests or bug reports (due to time constraints).  Since
 it's so simple, just send me a pull request if you'd like to add or fix
 something.
