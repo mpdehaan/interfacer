@@ -28,17 +28,20 @@ import os
 import glob
 import imp
 
+
 def find_module_path(name):
-    ''' given the name of a library directory, look for it in all the likely places '''
-    for x in [ name, "../%s" % name, "/usr/share/%s" % name ]:
+    '''given the name of a library directory, look for it in all the likely
+    places'''
+    for x in [name, "../%s" % name, "/usr/share/%s" % name]:
         if os.path.exists(x):
             return x
     return None
 
+
 def load_modules(dir, class_name='CliModule'):
     ''' given a selected library directory, return plugin instances '''
     modules = {}
-    for path in glob.glob(os.path.join(dir, '*.py')): 
+    for path in glob.glob(os.path.join(dir, '*.py')):
         (name, ext) = os.path.splitext(os.path.basename(path))
         if not name.startswith("_"):
             modules[name] = imp.load_source(name, path).register()
