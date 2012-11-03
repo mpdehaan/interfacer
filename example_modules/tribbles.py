@@ -26,8 +26,10 @@
 import interfacer.base_module as base_module
 import sys
 
+
 def register():
-    return TribblesModule()        
+    return TribblesModule()
+
 
 class ListCommand(base_module.SubCommand):
     ''' example_cli tribbles list [--name] '''
@@ -41,26 +43,28 @@ class ListCommand(base_module.SubCommand):
     def options(self):
 
         return [
-           [ "-n", "--name", dict(dest="name", help="list tribles only with this name") ]
+           ["-n", "--name",
+            dict(dest="name", help="list tribles only with this name")]
         ]
 
     def run(self, options, args):
-        tribbles = [ 'xyork', 'slorg', 'rooster', 'blinky', 'poorboy', 'willy', ]
-   
+        tribbles = ['xyork', 'slorg', 'rooster', 'blinky', 'poorboy', 'willy']
+
         found = False
         for x in tribbles:
             if options.name is not None:
                 if options.name.lower() in x:
                     found = True
-                    print x 
+                    print x
             else:
-                print x    
+                print x
 
         if not found and options.name is not None:
             # TODO: make this an exception subclass
             sys.stderr.write("error: tribble (%s) not found" % options['name'])
             return 1
         return 0
+
 
 class TribblesModule(base_module.BaseModule):
     ''' example_cli tribbles [...] '''

@@ -24,20 +24,20 @@
 # Michael DeHaan
 
 import sys
-import os
+
 
 class Interfacer(object):
     ''' Interfacer is a multi-level command line framework '''
 
     def __init__(self, name, modules_list):
-        ''' 
-        Create a CLI around this list of module instances.  
+        '''
+        Create a CLI around this list of module instances.
         Use functions from interfacer.utils to load from a directory
         '''
 
-        self.name    = name
+        self.name = name
         self.modules = modules_list
-        self.app     = sys.argv[0]
+        self.app = sys.argv[0]
 
     def run(self, args):
         '''
@@ -46,7 +46,7 @@ class Interfacer(object):
 
         self.app = args[0]
 
-        if len(args) == 1 or args[1] in [ '--help', '-h', 'help' ]:
+        if len(args) == 1 or args[1] in ['--help', '-h', 'help']:
             return self.list_modules()
 
         for x in self.modules:
@@ -87,4 +87,3 @@ class Interfacer(object):
 
         sys.stderr.write("error: category (%s) not found\n" % name)
         return 1
-

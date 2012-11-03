@@ -35,7 +35,7 @@ setup(name='interfacer',
       author_email='michael.dehaan@gmail.com',
       url='http://rpath.com',
       license='GPLv3',
-      package_dir={ 'interfacer': 'lib/interfacer' },
+      package_dir={'interfacer': 'lib/interfacer'},
       packages=[
          'interfacer',
       ],
